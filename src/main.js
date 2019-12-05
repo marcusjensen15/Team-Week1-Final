@@ -44,7 +44,7 @@ $(document).ready(function(){
     let inputApr = parseFloat($("#userApr").val());
 
     let myCarLease = new MyCarLease(inputMsrp,inputTradeIn,inputDownPayment,inputSalesTax,inputApr);
-    $(".leaseResult").append(`<br>Over the total of your three year lease: <br> <br> Depreciation cost: $${myCarLease.depreciationThreeYear} <br> Financing fee: $${myCarLease.financingFeeThreeYear} <br> Sales Tax: $${myCarLease.salesTaxThreeYear}`);
+    $(".leaseResult").append(`Over the total of your three year lease. <br> Depreciation cost: $${myCarLease.depreciationThreeYear} <br> Financing fee: $${myCarLease.financingFeeThreeYear} <br> Sales Tax: $${myCarLease.salesTaxThreeYear}`);
     console.log(myCarLease);
 
   });
@@ -61,7 +61,7 @@ $(document).ready(function(){
     let myEducation = new MyEducation(userMajor, userSchoolType, userCity, userLifeStyle, userCashToday, userFrequency);
     $("#collegePage").hide();
     $("#results").show();
-    $("#finalResults").text(myEducation.paybackPeriod);
+    $("#finalResults").append(myEducation.paybackPeriod);
 
     //below is car lease testing
     console.log(myEducation);
@@ -72,6 +72,7 @@ $(document).ready(function(){
   });
 
   $("button#newCollege").click(function(){
+    $('#finalResults').text(" ");      //this is new
     $("#collegePage").show();
     $("#results").hide();
   });
